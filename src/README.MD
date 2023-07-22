@@ -1,7 +1,7 @@
 // Create folders for separate components 
-//create 3 flies html ,css , js then connect all of them 
-//install npm package npm init
-//then install  parcel package in npm (npm install d parcel)
+-create 3 flies html ,css , js then connect all of them 
+-install npm package npm init
+-then install  parcel package in npm (npm install d parcel)
 // execute the parcel by 
     npx - is the command to execute the parcel in npm package
     npx parcel index.html 
