@@ -1,5 +1,7 @@
-import reslist from "./utils/mockdata";
+
 import { CARD_LOGO } from "./utils/constant";
+import { useState } from "react";
+import reslist from "./utils/mockdata";
 
 const Rescards=(props)=>{
   const {resdata}=props;
@@ -19,21 +21,26 @@ const Rescards=(props)=>{
 
 
 const Body=()=>{
+
+
+  
+  const [reslist1,setreslist]= useState(reslist);
+  
+
   return(
   <div id="container">
-    <div id="search">
-        Search </div>
-    <div id="rescontainer">
-      {/* <Rescards resdata={reslist[0]}/> */}
+    <div id="Filter">
+       <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>4.1);setreslist(filterlist);
 
-    {/* function data(restaurant){
-        <Rescards resdata={restaurant}>
-    
-      
-     const resdata= reslist.map(data) */}
-     
+        }}>
+          Top restaurants
+       </button>
+    </div>
 
-    {reslist.map((restaurant)=><Rescards resdata={restaurant}/>)}
+
+  <div id="rescontainer">
+    {reslist1.map((restaurant)=>
+      <Rescards key ={restaurant.info.id} resdata={restaurant}/>)}
     </div>
   </div>
   )
