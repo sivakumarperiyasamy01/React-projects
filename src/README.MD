@@ -1,12 +1,12 @@
--Create folders for separate components 
--create 3 flies html ,css , js then connect all of them 
--install npm package npm init
--then install  parcel package in npm (npm install d parcel)
--xecute the parcel by 
-      -npx - is the command to execute the parcel in npm package
-      - npx parcel index.html 
-- then get react and react dom from npm package(npm install reaact) ,(npm install react-dom)
--then import react to app.js by following 
+// Create folders for separate components 
+//create 3 flies html ,css , js then connect all of them 
+//install npm package npm init
+//then install  parcel package in npm (npm install d parcel)
+// execute the parcel by 
+    npx - is the command to execute the parcel in npm package
+    npx parcel index.html 
+// then get react and react dom from npm package(npm install reaact) ,(npm install react-dom)
+//then import react to app.js by following 
   import React from "react";
   import ReactDOM from "react-dom"
 
