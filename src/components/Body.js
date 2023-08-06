@@ -1,7 +1,7 @@
 
 import { CARD_LOGO } from "./utils/constant";
-import { useState } from "react";
-import reslist from "./utils/mockdata";
+import { useEffect, useState } from "react";
+import Shimmer from "./utils/Shimmer";
 
 const Rescards=(props)=>{
   const {resdata}=props;
@@ -17,20 +17,36 @@ const Rescards=(props)=>{
    )
 }
 
-
-
-
 const Body=()=>{
 
+  const [reslist1,setreslist]= useState([]);
 
-  
-  const [reslist1,setreslist]= useState(reslist);
-  
 
+  useEffect(()=>{
+    fetchdata();
+
+  },[])
+
+  const fetchdata= async ()=>{
+    const data1= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  
+  
+  const json=await data1.json()
+
+  console.log(json); 
+
+setreslist(json.data.cards[5].card.card.gridElements.infoWithStyle
+.restaurants);
+
+  };
+
+  if (reslist1.length===0){
+      return <Shimmer />
+  };
   return(
   <div id="container">
     <div id="Filter">
-       <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>4.1);setreslist(filterlist);
+       <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>4);setreslist(filterlist);
 
         }}>
           Top restaurants

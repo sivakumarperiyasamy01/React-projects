@@ -105,4 +105,29 @@ export const LOGO_URL="https://i.pinimg.com/736x/9a/fa/a4/9afaa4a58b2c5e73cdbd7d
 
 export const CARD_LOGO="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
+
+
+React Hook 
+    - it is a normal js function / utility function 
+    - two types of hook 
+          1. useState()- state variable in react 
+          2.useEffect()
+
+    - before use useState()hook we need to import from react 
+          import { useState } from "react";
+    
+    - next create a useState variable like following
+          const [reslist1,setreslist]= useState(reslist);
+
+    - in that above it take to values one is storing variable , second one is updating variable
+
+    -when we click a button following things need to happend 
+        <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>3.5);setreslist(filterlist);
+
+    - render 
+        - when we make changes in state variable it rerender the component update in dom 
+
+
+    
+
     
