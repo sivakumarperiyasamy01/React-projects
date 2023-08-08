@@ -21,6 +21,8 @@ const Body=()=>{
 
   const [reslist1,setreslist]= useState([]);
 
+  const[SearchRes, setSearchRes]=useState("");
+
 
   useEffect(()=>{
     fetchdata();
@@ -46,6 +48,17 @@ setreslist(json.data.cards[5].card.card.gridElements.infoWithStyle
   return(
   <div id="container">
     <div id="Filter">
+      <input type="text" className="input" value={SearchRes} onChange={(e)=>{
+             setSearchRes(e.target.value);
+      }}>
+      </input>
+
+     <button className="search" onClick={()=>{
+            reslist1.filter((rest)=>{
+             const store= rest.info.name.includes(SearchRes)
+              setSearchRes(store);
+            })
+     }}>Search</button>
        <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>4);setreslist(filterlist);
 
         }}>

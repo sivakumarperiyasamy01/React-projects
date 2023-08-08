@@ -95,3 +95,6 @@ ul>li{
   cursor: pointer;
 
 }
+#filter{
+  display: flex;
+}
