@@ -55,11 +55,12 @@ setreslist(json.data.cards[5].card.card.gridElements.infoWithStyle
 
      <button className="search" onClick={()=>{
             reslist1.filter((rest)=>{
-             const store= rest.info.name.includes(SearchRes)
+             const store= rest.data.cards
               setSearchRes(store);
             })
      }}>Search</button>
-       <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>4);setreslist(filterlist);
+
+       <button className="btn" onClick={()=>{const filterlist=reslist1.filter((res)=>res.info.avgRating>4.4);setreslist(filterlist);
 
         }}>
           Top restaurants
