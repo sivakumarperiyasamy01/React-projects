@@ -11,8 +11,9 @@ import Contact from "./components/contact Us.js";
 
 import Error from "./components/error.js";
 
-import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
+import Resmenu from "./components/resmenu.js";
 
+import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 
 
 
@@ -26,30 +27,31 @@ const Applayout=()=>{
   
 };
 
-
 const approute=createBrowserRouter([
-    {  
-      path:"/",
-      element:<Applayout/>,
-      childern:[
-
-        {
-          path:"/",
-          element:<Body/>
-        },
-        {
-          path:"/About",
-          element:<About/>
-        },
-        {
-          path:"/Contact",
-          element:<Contact/>
-        },
-      ],
-      errorElement:<Error/>,
+  {
+    path:"/",
+    element:<Applayout/>,
+    children:[
+      {
+        path:"/",
+        element:<Body/>,
+      },
+      {
+        path:"/About",
+        element:<About/>,
+      },
+      {
+        path:"/contact",
+        element:<Contact/>,
+      },
+      {
+        path:"/Resmenu/resid",
+        element:<Resmenu/>,
+      },
+    ],
+    errorElement:<Error/>,
   },
 ]);
-
 
 
     // props is endof the day  js object we are writing js object in {}
