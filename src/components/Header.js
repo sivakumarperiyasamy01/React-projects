@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const Header=()=>{
 
+ // usestate login is inital value to state variable 
  
   const[btnNameReact, setbtnNameReact]= useState("login");
 
   return(
-    <div id="header">
+  <div id="header">
       <div id="logo">
         <img src={LOGO_URL}></img>
       </div>
@@ -21,17 +22,12 @@ const Header=()=>{
           <button className="btn1" onClick={()=>{
                 btnNameReact==="login"?setbtnNameReact("logout"):setbtnNameReact("login")
         }}>{btnNameReact}</button>
-        
-     
-        </ul>
-        
+        </ul>  
       </div>
 
-    </div>
+  </div>
   )
 }
-
-
 
 
  export default Header;

@@ -18,9 +18,16 @@ const Rescards=(props)=>{
               <h4>{avgRating}stars</h4>       
           </div> ) }
 
+
 const Body=()=>{
-    // usestate used in filter onclick and search
+    // usestate used in filter onclick and search   1.connecting useeffect and use state 
+
       const[listofres,setlisofres]=useState([])
+
+      const [filterrestaurant,setfilterrestaurant]=useState([])
+
+  // search filter combine with state variable 
+  const [searchfilter,setsearchfilter]=useState("")
 
   // use effect  1.connecting useeffect and use state 
       useEffect(()=>{
@@ -38,19 +45,32 @@ const Body=()=>{
     // we need to update the statevaraible in usestate. we need to use portion of requried data from json
     // optional chaining 
             setlisofres(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setfilterrestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
       }
 
     // shimmer UI it gives better user experience it will use before the execution of rescontainer
-        if(listofres.length===0){
-            return <Shimmer/>
-        }
-
    // filter button 
+  return listofres.length===0?<Shimmer/>:
+       ( <div className="body">
 
-  return(   
-      <div className="body">
-          <div>
-            <button className="btn" onClick={()=>{
+          <div className="filter">
+              <div className="search filte ">
+                <input type="text" className="search" value={searchfilter} onChange={(e)=>{
+                    setsearchfilter(e.target.value)
+                }}/>
+                <button className="btn" onClick={()=>{
+                const filtersearch= listofres.filter((res)=>
+                      res.info.name.toLowerCase().includes(searchfilter.toLowerCase())
+                  )
+                  setfilterrestaurant(filtersearch)       
+                }}>
+                    search
+                </button>
+
+              </div>
+            
+                  
+            <button className="btn" onClick={()=>{   // top restaurants filter logic
               const filterlist=listofres.filter((res)=>
                 res.info.avgRating>4.3);
                 setlisofres(filterlist)
@@ -58,22 +78,14 @@ const Body=()=>{
             }}>Top restaurants</button>
           </div>
       
-
+    
   
       
                   
 
 
-
-
-
-
-
-
-
-
        <div id="rescontainer">
-            {listofres.map((restaurant)=>
+            {filterrestaurant.map((restaurant)=>
             <Rescards key ={restaurant.info.id} resdata={restaurant}/>)}
        </div>
         
