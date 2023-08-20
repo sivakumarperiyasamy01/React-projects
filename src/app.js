@@ -7,13 +7,11 @@ import Header from "./components/Header.js";
 
 import About from "./components/about.js";
 
-import Contact from "./components/contact Us.js";
+import Contact from "./components/contact.js";
 
 import Error from "./components/error.js";
 
-import Resmenu from "./components/resmenu.js";
-
-import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
+import { createBrowserRouter,Outlet,RouterProvider,Outlet } from "react-router-dom";
 
 
 
@@ -22,35 +20,37 @@ const Applayout=()=>{
     <div id="applayout">
       <Header/>
       <Outlet/>
+
       </div>
   );
   
 };
 
-const approute=createBrowserRouter([
-  {
-    path:"/",
-    element:<Applayout/>,
-    children:[
+const approuter=createBrowserRouter([
       {
         path:"/",
-        element:<Body/>,
-      },
-      {
-        path:"/About",
-        element:<About/>,
-      },
-      {
-        path:"/contact",
-        element:<Contact/>,
-      },
-      {
-        path:"/Resmenu/resid",
-        element:<Resmenu/>,
-      },
-    ],
-    errorElement:<Error/>,
-  },
+        element:<Applayout/>,
+        children:[
+            {
+              path:"/",
+              element:<Body/>
+            },
+            {
+              path:"/About",
+              element:<About/>
+      
+             },
+             {
+              path:"/Contact",
+              element:<Contact/>
+      
+             },
+
+        ],
+        errorElement:<Error/>
+      
+      }
+     
 ]);
 
 
@@ -59,7 +59,7 @@ const approute=createBrowserRouter([
 
 const root =ReactDOM.createRoot(document.getElementById("root"))
  
-root.render(<RouterProvider router={approute}/>)
+root.render(<RouterProvider router={approuter}/>)
 
 
 

@@ -23,13 +23,15 @@ const Body=()=>{
     // usestate used in filter onclick and search   1.connecting useeffect and use state 
 
       const[listofres,setlisofres]=useState([])
-
+  // built for search filter copy 
       const [filterrestaurant,setfilterrestaurant]=useState([])
 
   // search filter combine with state variable 
   const [searchfilter,setsearchfilter]=useState("")
 
-  // use effect  1.connecting useeffect and use state 
+  // use effect  1.connecting useeffect and use state
+  // if no depedancy array use effect will be called every componenet renders 
+  // if depadency array empty - useeffect is called on only intial render   
       useEffect(()=>{
             fetchdata();
       },[])
@@ -79,10 +81,6 @@ const Body=()=>{
           </div>
       
     
-  
-      
-                  
-
 
        <div id="rescontainer">
             {filterrestaurant.map((restaurant)=>
@@ -94,6 +92,4 @@ const Body=()=>{
 }
        
     
-
-  
 export default Body;
