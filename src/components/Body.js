@@ -3,6 +3,7 @@ import { CARD_LOGO } from "./utils/constant";
 import { useEffect, useState } from "react";
 import Shimmer from "./utils/Shimmer";
 import reslist from "./utils/mockdata";
+import { Link } from "react-router-dom";
 
 
 // rescards in rescontainer 
@@ -84,7 +85,7 @@ const Body=()=>{
 
        <div id="rescontainer">
             {filterrestaurant.map((restaurant)=>
-            <Rescards key ={restaurant.info.id} resdata={restaurant}/>)}
+           <Link key={restaurant.info.id} to={"/restaurant/+464509"}> <Rescards resdata={restaurant}/></Link>)}
        </div>
         
    </div> 

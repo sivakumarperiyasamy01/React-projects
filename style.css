@@ -98,3 +98,15 @@ ul>li{
 #filter{
   display: flex;
 }
+
+.resmenupage{
+    
+   position: relative;
+   left: 40px;
+   border: 1px;
+   padding-right: 20px;
+   margin: 30px;
+
+  
+
+}

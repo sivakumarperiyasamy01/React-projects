@@ -11,6 +11,8 @@ import Contact from "./components/contact.js";
 
 import Error from "./components/error.js";
 
+import Resmenu from "./components/resmenu.js";
+
 import { createBrowserRouter,Outlet,RouterProvider,Outlet } from "react-router-dom";
 
 
@@ -43,6 +45,11 @@ const approuter=createBrowserRouter([
              {
               path:"/Contact",
               element:<Contact/>
+      
+             },
+             {
+              path:"/restaurant/:id",
+              element:<Resmenu/>
       
              },
 
