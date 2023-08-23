@@ -85,7 +85,7 @@ const Body=()=>{
 
        <div id="rescontainer">
             {filterrestaurant.map((restaurant)=>
-           <Link key={restaurant.info.id} to={"/restaurant/+464509"}> <Rescards resdata={restaurant}/></Link>)}
+           <Link key={restaurant.info.id} to={"/restaurant/" }> <Rescards resdata={restaurant}/></Link>)}
        </div>
         
    </div> 
