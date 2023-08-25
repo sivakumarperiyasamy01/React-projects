@@ -1,35 +1,19 @@
 
 import Shimmer from "./utils/Shimmer";
 
-import { useEffect, useState} from "react";
+import { Form, useParams } from "react-router-dom"
 
-import { useParams } from "react-router-dom";
-
-import { MENU_API } from "./utils/constant";
-
+import useresmenu from "./utils/useresmenu";
 
 
 const Resmenu=()=>{
 
-    const[rescardinfo,setrescardinfo]=useState(null)
-
-      const{id}=useParams();
+   
+  const{id}=useParams();
     
+  const rescardinfo=useresmenu(id)
 
-       useEffect(()=>{
-          fecthmenu();
-       },[])
-
-      const fecthmenu= async()=>{
-      const data = await fetch(MENU_API+id)
-
-      const json= await data.json() 
-      console.log(json)
-       
-      setrescardinfo(json.data)
-      
-  };
-
+    
   if(rescardinfo===null){
       return(<Shimmer/>)
   }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./utils/Shimmer";
 import reslist from "./utils/mockdata";
 import { Link } from "react-router-dom";
+import useonlinestatus from "./utils/useonlinestatus";
 
 
 // rescards in rescontainer 
@@ -51,6 +52,13 @@ const Body=()=>{
             setfilterrestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
       }
 
+      const  onlinestatus=useonlinestatus()
+      
+      if (onlinestatus===false)return(
+        <h1>check internet connection </h1>
+      )
+
+
     // shimmer UI it gives better user experience it will use before the execution of rescontainer
    // filter button 
   return listofres.length===0?<Shimmer/>:
@@ -85,7 +93,7 @@ const Body=()=>{
 
        <div id="rescontainer">
             {filterrestaurant.map((restaurant)=>
-           <Link key={restaurant.info.id} to={"/restaurant/" }> <Rescards resdata={restaurant}/></Link>)}
+           <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}> <Rescards resdata={restaurant}/></Link>)}
        </div>
         
    </div> 

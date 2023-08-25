@@ -9,7 +9,10 @@ class UserClass extends React.Component{
     super(props)
 
     this.state={
-      
+      userinfo:{
+        name:"dummy",
+        location:"dummy url"
+      }
       
     }
     
@@ -19,18 +22,20 @@ class UserClass extends React.Component{
  async componentDidMount(){
 
   const data=await fetch("https://api.github.com/users/sivakumarperiyasamy01")
-  const json= await data.json()
-  console.log(json)
+  const json= await data.json();
+
+  this.setState({
+   userinfo:json}
+  );
 
   }
         render(){
-        
+            
           return(
-          
             <div className="classcard">
-              <h2>Name</h2>
-              <h3>location</h3>
-              <h3>email</h3>
+              <h2>Name:{this.state.userinfo.name}</h2>
+             
+             
       
             </div>
           )
