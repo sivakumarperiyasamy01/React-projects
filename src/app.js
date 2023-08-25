@@ -1,4 +1,5 @@
 import React from "react";
+
 import { lazy,Suspense } from "react";
 
 import ReactDOM from "react-dom/client";
@@ -18,6 +19,10 @@ import Resmenu from "./components/resmenu.js";
 import { createBrowserRouter,Outlet,RouterProvider,Outlet } from "react-router-dom";
 
 
+// chunking 
+// lazy loading 
+// ondemand loading 
+// dynamic import 
 
 const Grocery=lazy(()=>
    import("./components/grocerry.js")
