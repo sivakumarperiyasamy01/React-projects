@@ -1,25 +1,10 @@
 
-import { CARD_LOGO } from "./utils/constant";
 import { useEffect, useState } from "react";
 import Shimmer from "./utils/Shimmer";
 import reslist from "./utils/mockdata";
 import { Link } from "react-router-dom";
 import useonlinestatus from "./utils/useonlinestatus";
-
-
-// rescards in rescontainer 
-const Rescards=(props)=>{
-  const {resdata}=props;
-  const {name,cuisines,avgRating,cloudinaryImageId}=resdata?.info
-  return(
-
-          <div className="Rescard">
-              <img className="cardlogo" src={CARD_LOGO+cloudinaryImageId}></img>
-              <h3>{name}</h3>
-              <h3>{cuisines.join(",  ")}</h3>
-              <h4>{avgRating}stars</h4>       
-          </div> ) }
-
+import Rescards,{Labledcards} from "./rescards";
 
 const Body=()=>{
     // usestate used in filter onclick and search   1.connecting useeffect and use state 
@@ -28,8 +13,12 @@ const Body=()=>{
   // built for search filter copy 
       const [filterrestaurant,setfilterrestaurant]=useState([])
 
+      console.log(listofres);
+
   // search filter combine with state variable 
   const [searchfilter,setsearchfilter]=useState("")
+
+  const Promotedcomponent= Labledcards(Rescards)
 
   // use effect  1.connecting useeffect and use state
   // if no depedancy array use effect will be called every componenet renders 
@@ -45,6 +34,7 @@ const Body=()=>{
     // convert the fecth data to json format
 
           const json= await data.json()
+        
 
     // we need to update the statevaraible in usestate. we need to use portion of requried data from json
     // optional chaining 
@@ -64,12 +54,12 @@ const Body=()=>{
   return listofres.length===0?<Shimmer/>:
        ( <div className="body">
 
-          <div className="filter">
-              <div className="search filte ">
-                <input type="text" className="search" value={searchfilter} onChange={(e)=>{
+          <div className="flex p-2">
+              <div >
+                <input type="text" className="bg-slate-400 m-5" value={searchfilter} onChange={(e)=>{
                     setsearchfilter(e.target.value)
                 }}/>
-                <button className="btn" onClick={()=>{
+                <button className="px-4 font-bold  bg-slate-400" onClick={()=>{
                 const filtersearch= listofres.filter((res)=>
                       res.info.name.toLowerCase().includes(searchfilter.toLowerCase())
                   )
@@ -81,7 +71,7 @@ const Body=()=>{
               </div>
             
                   
-            <button className="btn" onClick={()=>{   // top restaurants filter logic
+            <button className="mx-5 bg-slate-400 " onClick={()=>{   // top restaurants filter logic
               const filterlist=listofres.filter((res)=>
                 res.info.avgRating>4.3);
                 setlisofres(filterlist)
@@ -91,9 +81,16 @@ const Body=()=>{
       
     
 
-       <div id="rescontainer">
+       <div className="flex flex-wrap ">
             {filterrestaurant.map((restaurant)=>
-           <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}> <Rescards resdata={restaurant}/></Link>)}
+           <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}> {restaurant.info.veg
+            ?<Promotedcomponent resdata={restaurant} />:<Rescards resdata={restaurant}/>}
+              
+
+           </Link>)
+          
+
+           }
        </div>
         
    </div> 

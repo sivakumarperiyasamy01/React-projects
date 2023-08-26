@@ -10,20 +10,20 @@ const Header=()=>{
   const[btnNameReact, setbtnNameReact]= useState("login");
 
   return(
-  <div id="header">
+  <div className="flex bg-pink-50 justify-between">
       <div id="logo">
-        <img src={LOGO_URL}></img>
+        <img className="w-24" src={LOGO_URL}></img>
       </div>
-      <div id="links">
-        <ul>
+      <div id="links" className="flex">
+        <ul className="flex px-2">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/About">About Us</Link></li>
           <li><Link to="/Contact">Contact Us</Link></li>
           <li><Link to="/Grocerry">grocerry</Link></li>
           <li>Cart</li>
-          <button className="btn1" onClick={()=>{
+          <li> <button className="btn1" onClick={()=>{
                 btnNameReact==="login"?setbtnNameReact("logout"):setbtnNameReact("login")
-        }}>{btnNameReact}</button>
+        }}>{btnNameReact}</button></li>
         </ul>  
       </div>
 
