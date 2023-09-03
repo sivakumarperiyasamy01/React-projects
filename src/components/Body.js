@@ -54,12 +54,12 @@ const Body=()=>{
   return listofres.length===0?<Shimmer/>:
        ( <div className="body">
 
-          <div className="flex p-2">
+          <div className="flex p-2 w-11/12 m-auto">
               <div >
-                <input type="text" className="bg-slate-400 m-5" value={searchfilter} onChange={(e)=>{
+                <input type="text"  placeholder="typing..." className="outline-none py-1 px-2 border-2 rounded-md  m-5" value={searchfilter} onChange={(e)=>{
                     setsearchfilter(e.target.value)
                 }}/>
-                <button className="px-4 font-bold  bg-slate-400" onClick={()=>{
+                <button className="px-4 font-bold " onClick={()=>{
                 const filtersearch= listofres.filter((res)=>
                       res.info.name.toLowerCase().includes(searchfilter.toLowerCase())
                   )
@@ -81,7 +81,7 @@ const Body=()=>{
       
     
 
-       <div className="flex flex-wrap ">
+       <div className="flex flex-wrap w-11/12 m-auto">
             {filterrestaurant.map((restaurant)=>
            <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}> {restaurant.info.veg
             ?<Promotedcomponent resdata={restaurant} />:<Rescards resdata={restaurant}/>}

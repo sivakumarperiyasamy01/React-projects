@@ -5,7 +5,7 @@ const Rescards=(props)=>{
   const {name,cuisines,avgRating,cloudinaryImageId}=resdata?.info
   return(
 
-          <div className="m-4 p-4 w-[200px] bg-gray-300 hover:bg-red-300 shadow-slate-300">
+          <div className="m-4 p-4 w-[200px] bg-#282c3f hover:transition-all shadow-slate-300">
               <img className="rounded-xl"src={CARD_LOGO+cloudinaryImageId}></img>
               <h3 className="font-bold p-2">{name}</h3>
               <h3 className="font-sans p-1">{cuisines.join(",  ")}</h3>

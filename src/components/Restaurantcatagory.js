@@ -1,0 +1,29 @@
+import Listitems from "./listitems";
+
+import { useState } from "react";
+
+const Restaurantcatagory=({data})=>{
+
+    const [showlistitems,setshowlistitems]=useState(false)
+
+    const handleclick=()=>{
+        setshowlistitems(!showlistitems)
+    }
+    
+    return(
+      <div className="w-6/12 mx-auto  bg-gray-50 shadow-lg my-4">
+      <div className="flex justify-between mr-15 cursor-pointer" onClick={handleclick}>
+          <h1 className="font-bold text-base">{data.title} ({data.itemCards.length}) </h1>
+          <span>⬇️</span>
+      </div>
+      <div>
+         {showlistitems && <Listitems items={data.itemCards}/>}
+      </div>
+
+      </div>
+      
+    )
+
+}
+
+export default Restaurantcatagory;
