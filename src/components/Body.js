@@ -1,13 +1,17 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState,Usercontext, useContext} from "react";
 import Shimmer from "./utils/Shimmer";
 import reslist from "./utils/mockdata";
 import { Link } from "react-router-dom";
 import useonlinestatus from "./utils/useonlinestatus";
 import Rescards,{Labledcards} from "./rescards";
+import Usercontext from "./utils/usercontext";
+
 
 const Body=()=>{
     // usestate used in filter onclick and search   1.connecting useeffect and use state 
+      const{loggedinuser,setusername} =useContext(Usercontext)
+
 
       const[listofres,setlisofres]=useState([])
   // built for search filter copy 
@@ -51,7 +55,7 @@ const Body=()=>{
 
     // shimmer UI it gives better user experience it will use before the execution of rescontainer
    // filter button 
-  return listofres.length===0?<Shimmer/>:
+  return  listofres.length===0?<Shimmer/>:
        ( <div className="body">
 
           <div className="flex p-2 w-11/12 m-auto">
@@ -77,6 +81,13 @@ const Body=()=>{
                 setlisofres(filterlist)
                 
             }}>Top restaurants</button>
+
+            <div>
+              <label>username:</label>
+              <input type="text" className="border border-l-amber-700" value={loggedinuser} onChange={(e)=>
+                      setusername(e.target.value)
+              } />
+            </div>
           </div>
       
     

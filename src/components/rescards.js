@@ -1,6 +1,11 @@
 import { CARD_LOGO } from "./utils/constant";
 // rescards in rescontainer 
+import { useContext } from "react";
+import Usercontext from "./utils/usercontext";
 const Rescards=(props)=>{
+
+  const{loggedinuser}=useContext(Usercontext)
+  
   const {resdata}=props;
   const {name,cuisines,avgRating,cloudinaryImageId}=resdata?.info
   return(
@@ -10,6 +15,7 @@ const Rescards=(props)=>{
               <h3 className="font-bold p-2">{name}</h3>
               <h3 className="font-sans p-1">{cuisines.join(",  ")}</h3>
               <h4>{avgRating}stars</h4>       
+              <h4>{loggedinuser}</h4>       
           </div> ) }
 
       

@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect } from "react";
+
+import { useState } from "react";
 
 import { lazy,Suspense } from "react";
 
@@ -18,6 +20,10 @@ import Resmenu from "./components/resmenu.js";
 
 import { createBrowserRouter,Outlet,RouterProvider,Outlet } from "react-router-dom";
 
+import Usercontext from "./components/utils/usercontext.js";
+
+// import Usercontext from "./components/utils/usercontext.js"
+
 
 // chunking 
 // lazy loading 
@@ -29,16 +35,29 @@ const Grocery=lazy(()=>
 )
 
 
-
-
-
 const Applayout=()=>{
+  
+const[username,setusername]=useState()
+
+
+  useEffect(()=>{
+    const data={
+      name:"siva"
+    }
+    setusername(data.name)
+  
+    },[]) 
+
   return(
+    <Usercontext.Provider value={{loggedinuser:username,setusername}}>
     <div id="applayout">
-      <Header/>
+    <Usercontext.Provider value={{loggedinuser:"gowtham"}}>
+        <Header/>
+      </Usercontext.Provider>
       <Outlet/>
 
       </div>
+     </Usercontext.Provider>
   );
   
 };

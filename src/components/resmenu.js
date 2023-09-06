@@ -7,6 +7,7 @@ import useresmenu from "./utils/useresmenu";
 
 import Restaurantcatagory from "./Restaurantcatagory";
 
+import { useState } from "react";
 
 const Resmenu=()=>{
 
@@ -14,6 +15,8 @@ const Resmenu=()=>{
   const{id}=useParams();
     
   const rescardinfo=useresmenu(id)
+
+  const[showindex,setshowindex]=useState()
 
     
   if(rescardinfo===null){
@@ -46,8 +49,15 @@ const Resmenu=()=>{
           <button className="p-2 w-40 bg-white text-lg font-normal shadow-lg"> Veg</button>
         </div>
         <div>
-            {Menucatagerious.map((catagory)=>
-                <Restaurantcatagory key={catagory.card.card.title} data={catagory.card.card}/>
+            {Menucatagerious.map((catagory,index)=>
+                <Restaurantcatagory key={catagory.card.card.title} data={catagory.card.card}
+               
+                showlistitems={index===showindex?true:false}
+                setshowindex={()=>setshowindex(index)}
+
+              
+                />
+                
             )}
 
         </div> 

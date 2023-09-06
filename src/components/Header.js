@@ -2,12 +2,17 @@
 import { LOGO_URL } from "./utils/constant";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Usercontext from "./utils/usercontext";
+import { useContext } from "react";
 
 const Header=()=>{
 
  // usestate login is inital value to state variable 
  
   const[btnNameReact, setbtnNameReact]= useState("login");
+
+  const {loggedinuser}= useContext(Usercontext)
+  
 
   return(
   <div className="flex bg-green-100 justify-between">
@@ -21,10 +26,13 @@ const Header=()=>{
           <li className="p-2 m-3"><Link to="/Contact">Contact Us</Link></li>
           <li className="p-2 m-3"><Link to="/Grocerry">grocerry</Link></li>
           <li className="p-2 m-3">Cart</li>
+          <li className="p-2 m-3">{loggedinuser}</li>
 
           <li className="p-2 m-3"> <button className="btn1" onClick={()=>{
                 btnNameReact==="login"?setbtnNameReact("logout"):setbtnNameReact("login")
         }}>{btnNameReact}</button></li>
+
+
         </ul>  
       </div>
 
