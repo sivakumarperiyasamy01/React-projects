@@ -38,3 +38,8 @@
 37) array and object
 38) accodian design
 39) higher order components
+40) use context
+41) props drilling
+42) lifting the state up
+43) control and uncontrol component
+    
