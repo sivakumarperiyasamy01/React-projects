@@ -36,3 +36,5 @@
 35) map filter reduce
 36) arrow functions
 37) array and object
+38) accodian design
+39) higher order components
