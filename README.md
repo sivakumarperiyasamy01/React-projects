@@ -42,4 +42,5 @@
 41) props drilling
 42) lifting the state up
 43) control and uncontrol component
+44) redux reducer
     
