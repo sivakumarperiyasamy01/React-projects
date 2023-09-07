@@ -21,6 +21,8 @@ import Resmenu from "./components/resmenu.js";
 import { createBrowserRouter,Outlet,RouterProvider,Outlet } from "react-router-dom";
 
 import Usercontext from "./components/utils/usercontext.js";
+import Appstore from "./components/utils/appstore.js";
+import { Provider } from "react-redux";
 
 // import Usercontext from "./components/utils/usercontext.js"
 
@@ -49,6 +51,7 @@ const[username,setusername]=useState()
     },[]) 
 
   return(
+    <Provider store={Appstore}>
     <Usercontext.Provider value={{loggedinuser:username,setusername}}>
     <div id="applayout">
     <Usercontext.Provider value={{loggedinuser:"gowtham"}}>
@@ -58,6 +61,7 @@ const[username,setusername]=useState()
 
       </div>
      </Usercontext.Provider>
+     </Provider>
   );
   
 };
