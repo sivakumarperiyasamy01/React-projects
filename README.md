@@ -7,7 +7,7 @@
 6) usehook state
 7) useeffect hook
 8) useparames
-9) custom hook
+9) custom hooks
 10) event handelers , onlcikc, onchange 
 11) routing
 12) virtual dom
@@ -19,7 +19,7 @@
 18) import export
 19) search functionality
 20) react reconcliation
-21) link to
+21) link to navigation 
 22) filter functinoality
 23) tolowercase(),includes()
 24) client side routing , server side routing
