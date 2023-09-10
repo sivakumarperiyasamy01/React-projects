@@ -23,6 +23,7 @@ import { createBrowserRouter,Outlet,RouterProvider,Outlet } from "react-router-d
 import Usercontext from "./components/utils/usercontext.js";
 import Appstore from "./components/utils/appstore.js";
 import { Provider } from "react-redux";
+import Cart from "./components/cart.js";
 
 // import Usercontext from "./components/utils/usercontext.js"
 
@@ -97,6 +98,11 @@ const approuter=createBrowserRouter([
               element:<Suspense fallbakc={<h1>welcome loding...</h1>}>< Grocery/></Suspense>
       
              },
+             {
+              path:"/Cart",
+              element:<Cart/>
+
+             }
 
         ],
         errorElement:<Error/>

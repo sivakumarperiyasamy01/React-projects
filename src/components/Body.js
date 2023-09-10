@@ -63,7 +63,7 @@ const Body=()=>{
                 <input type="text"  placeholder="typing..." className="outline-none py-1 px-2 border-2 rounded-md  m-5" value={searchfilter} onChange={(e)=>{
                     setsearchfilter(e.target.value)
                 }}/>
-                <button className="px-4 font-bold " onClick={()=>{
+                <button className="px-4 py-2 font-bold bg-blue-500 hover:bg-blue-700 text-white rounded " onClick={()=>{
                 const filtersearch= listofres.filter((res)=>
                       res.info.name.toLowerCase().includes(searchfilter.toLowerCase())
                   )
@@ -74,8 +74,8 @@ const Body=()=>{
 
               </div>
             
-                  
-            <button className="mx-5 bg-slate-400 " onClick={()=>{   // top restaurants filter logic
+              
+            <button className="mx-4 py-2 px-4 font-bold bg-green-500 hover:bg-green-700 text-white "onClick={()=>{   // top restaurants filter logic
               const filterlist=listofres.filter((res)=>
                 res.info.avgRating>4.3);
                 setlisofres(filterlist)

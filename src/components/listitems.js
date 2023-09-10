@@ -1,8 +1,20 @@
 
  import { CARD_LOGO } from "./utils/constant";
+ import { useDispatch } from "react-redux";
+ import { addItem } from "./utils/createslice";
 
 const Listitems=({items})=>{
   console.log(items)
+
+  
+  const dispatch=useDispatch()
+
+  const handelClick=(item)=>{
+     console.log(dispatch( addItem(item)))
+
+  }
+
+
   return(
     <div className="text-left my-6" >
              {items.map((item)=>(
@@ -16,7 +28,7 @@ const Listitems=({items})=>{
           </div>
             
          <div className="w-3/12"> 
-          <button className="p-2 w-15 h-10 bg-white text-lg font-normal shadow-lg absolute "> Add+</button>
+          <button className="p-2 w-15 h-10 bg-white text-lg font-normal shadow-lg absolute "onClick={()=>handelClick(item)}> Add+</button>
               <div>
               <img className="p-3" src={CARD_LOGO+item.card.info.imageId }></img>
               </div>
