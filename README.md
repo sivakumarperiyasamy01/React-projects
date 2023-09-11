@@ -43,4 +43,7 @@
 42) lifting the state up
 43) control and uncontrol component
 44) redux reducer
+45) react testing
+46) unit testing
+47) integrated testing 
     
