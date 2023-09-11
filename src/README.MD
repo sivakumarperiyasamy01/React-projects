@@ -139,3 +139,20 @@ const heading =<h1>welcome to react project1</h1>
 const root =ReactDOM.createRoot(document.getElementById("root"))
 
 root.render(heading)
+
+
+
+
+# types of testing 
+  - unit testing 
+  - integrated testing 
+  - End to End testing -e2e testing 
+
+# testing up testing 
+-install react testing library 
+-install jest 
+-install bable dependencies from jest website 
+-configure bables getting config from jest website 
+-config parcel config to diable default bable transpilation 
+- jest configuration -npx jest --init
+-install jsdom library 
