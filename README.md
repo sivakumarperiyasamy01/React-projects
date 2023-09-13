@@ -45,5 +45,7 @@
 44) redux reducer
 45) react testing
 46) unit testing
-47) integrated testing 
+47) integrated testing
+48) add testing libraries
+    
     
