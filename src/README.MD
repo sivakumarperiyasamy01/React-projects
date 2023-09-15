@@ -156,3 +156,8 @@ root.render(heading)
 -config parcel config to diable default bable transpilation 
 - jest configuration -npx jest --init
 -install jsdom library 
+-install @babel/preset-react library for jsx work in test  
+-include @babel preset-react inside my babel config
+-install @testing -library/jest-dom
+-npm i -D @testing-library/jest-dom
+-once installed then import in teststing files 

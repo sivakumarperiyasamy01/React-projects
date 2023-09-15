@@ -7,6 +7,8 @@ const Rescards=(props)=>{
   const{loggedinuser}=useContext(Usercontext)
   
   const {resdata}=props;
+
+  console.log(resdata)
   const {name,cuisines,avgRating,cloudinaryImageId}=resdata?.info
   return(
 
@@ -22,6 +24,7 @@ const Rescards=(props)=>{
 
   export const Labledcards=(Rescards)=>{
 
+  
     return (
       (resdata)=>{
         return(

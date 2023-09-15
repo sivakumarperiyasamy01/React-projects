@@ -2,9 +2,15 @@
 const Contact=()=>{
       
     return(
-          <div>
-            <h1>Contact Form</h1>
-            <h2>contact num</h2>
+          <div className="m-4, p-4">
+            <h1 className=" font-bold">Contact Form</h1>
+            <form>
+              <input type="text" placeholder="name" className="border border-black p-2 m-4">
+              </input>
+              <input type="text" placeholder="message" className="border border-black p-2 m-4"></input>
+              <button className="border border-black p-2 m-4 rounded">submit</button>
+
+            </form>
           </div>
 
       )
