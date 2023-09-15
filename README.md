@@ -44,8 +44,9 @@
 43) control and uncontrol component
 44) redux reducer
 45) react testing
-46) unit testing
-47) integrated testing
-48) add testing libraries
+46) unit testing  . ui components testing
+47) unit testing props passing 
+48) integrated testing  - search 
+49) add testing libraries
     
     
