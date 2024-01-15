@@ -14,7 +14,7 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom";
-import Usercontext from "../src/utills/usercontext.js";
+
 import Appstore from "../src/utills/appstore.js";
 import { Provider } from "react-redux";
 import Cart from "./components/cart.js";
@@ -33,14 +33,10 @@ const Applayout = () => {
 
   return (
     <Provider store={Appstore}>
-      <Usercontext.Provider value={{ loggedinuser: username, setusername }}>
-        <div id="applayout">
-          <Usercontext.Provider value={{ loggedinuser: "siva" }}>
-            <Header />
-          </Usercontext.Provider>
-          <Outlet />
-        </div>
-      </Usercontext.Provider>
+      <div id="applayout">
+        <Header />
+        <Outlet />
+      </div>
     </Provider>
   );
 };

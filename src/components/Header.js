@@ -1,14 +1,12 @@
 import { LOGO_URL } from "../utills/constant";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Usercontext from "../utills/usercontext";
-import { useContext } from "react";
 import { useSelector } from "react-redux";
 import useOnlinestatus from "../utills/useonlinestatus";
 
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("login");
-  const { loggedinuser } = useContext(Usercontext);
+
   const cart = useSelector((store) => store.cart.items);
   const onlinestatus = useOnlinestatus();
 
@@ -37,7 +35,6 @@ const Header = () => {
           <li className="p-2 m-3">
             <Link to="/Cart">Cart ({cart.length}items)</Link>
           </li>
-          <li className="p-2 m-3">{loggedinuser}</li>
 
           <li className="p-2 m-3">
             {" "}

@@ -33,7 +33,7 @@ const Listitems = ({ items }) => {
               onClick={() => handelClick(item)}
             >
               {" "}
-              Add+
+              Add
             </button>
             <div>
               <img

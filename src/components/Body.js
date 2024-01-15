@@ -10,7 +10,6 @@ const Body = () => {
   const [listofres, setlisofres] = useState([]);
   const [searchfilter, setsearchfilter] = useState("");
   const [filterrestaurant, setfilterrestaurant] = useState([]);
-  const { loggedinuser, setusername } = useContext(Usercontext);
   const Promotedcomponent = Labledcards(Rescards);
 
   useEffect(() => {
@@ -21,10 +20,11 @@ const Body = () => {
     const data = await fetch(SWIGGY_API);
     const json = await data.json();
     setlisofres(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
     setfilterrestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -37,9 +37,9 @@ const Body = () => {
       </h1>
     );
 
-  return listofres.length === 0 ? (
-    <Shimmer />
-  ) : (
+  if (listofres?.length === 0) return <Shimmer />;
+
+  return (
     <div className="body">
       <div className="flex w-11/12 m-auto mx-28 my-10">
         <div>
@@ -77,19 +77,9 @@ const Body = () => {
         >
           Top restaurants
         </button>
-
-        <div>
-          <label className="font-bold">Username:</label>
-          <input
-            type="text"
-            className="border px-4 py-1 mx-2 rounded-l"
-            value={loggedinuser}
-            onChange={(e) => setusername(e.target.value)}
-          />
-        </div>
       </div>
       <div className="flex flex-wrap w-11/12 m-auto">
-        {filterrestaurant.map((restaurant) => (
+        {filterrestaurant?.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}

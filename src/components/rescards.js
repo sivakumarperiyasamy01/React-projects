@@ -17,7 +17,6 @@ const Rescards = (props) => {
       <h3 className="font-bold p-2">{name}</h3>
       <h3 className="font-sans p-1 ">{cuisines.join(",")}</h3>
       <h4 className="px-1">{avgRating} Stars</h4>
-      <h4>{loggedinuser}</h4>
     </div>
   );
 };
