@@ -1,5 +1,18 @@
-# following concepts used in this project 
+Food ordering app 
 
+1) Make an api call Rendering items, search and Filter functionality build
+   
+![Home page](https://github.com/sivakumarperiyasamy01/React-projects/assets/139151119/3cc48b98-a5bd-440a-b021-5df06588f792)
+
+2) Dynamic React routing configuration for each item, resmenu page and accordian design
+   
+![resmenu page](https://github.com/sivakumarperiyasamy01/React-projects/assets/139151119/ef4fcb34-61c5-4b74-8dc6-e718d16d1786)
+
+3) Cart page state management Redux toolkit used
+
+![cart page](https://github.com/sivakumarperiyasamy01/React-projects/assets/139151119/b1a07c0f-961f-46e3-920d-9f4a78a622b2)
+
+Tech stacks used:
 1. npm
 2. webpack parcel
 3. jsx
