@@ -1,6 +1,6 @@
 Food ordering app 
 
-1) Make an api call Rendering items, search and Filter functionality build
+1) Make an api call Rendering items, search and Filter functionality build, custom hook
    
 ![Home page](https://github.com/sivakumarperiyasamy01/React-projects/assets/139151119/3cc48b98-a5bd-440a-b021-5df06588f792)
 
